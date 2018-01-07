@@ -1,0 +1,102 @@
+#!/usr/bin/env perl
+
+use 5.010001;
+use strict;
+use warnings;
+use FindBin '$Bin';
+
+use CryptoCurrency::Catalog;
+use File::Slurper qw(write_text);
+
+my $cat = CryptoCurrency::Catalog->new;
+
+open my $fh_symbol, ">",
+    "$Bin/../lib/WordList/CryptoCurrency/Catalog/Symbol.pm" or die;
+open my $fh_name, ">",
+    "$Bin/../lib/WordList/CryptoCurrency/Catalog/Name.pm" or die;
+open my $fh_namesymbol, ">",
+    "$Bin/../lib/WordList/CryptoCurrency/Catalog/NameSymbol.pm" or die;
+open my $fh_safename, ">",
+    "$Bin/../lib/WordList/CryptoCurrency/Catalog/Safename.pm" or die;
+
+print $fh_symbol <<'_';
+package WordList::CryptoCurrency::Catalog::Symbol;
+
+# DATE
+# VERSION
+
+use WordList;
+our @ISA = qw(WordList);
+
+# STATS
+
+1;
+# ABSTRACT: List of cryptocurrency symbols
+
+__DATA__
+_
+
+print $fh_name <<'_';
+package WordList::CryptoCurrency::Catalog::Name;
+
+# DATE
+# VERSION
+
+use WordList;
+our @ISA = qw(WordList);
+
+# STATS
+
+1;
+# ABSTRACT: List of cryptocurrency names
+
+__DATA__
+_
+
+print $fh_namesymbol <<'_';
+package WordList::CryptoCurrency::Catalog::NameSymbol;
+
+# DATE
+# VERSION
+
+use WordList;
+our @ISA = qw(WordList);
+
+# STATS
+
+1;
+# ABSTRACT: List of cryptocurrency names (and their symbols)
+
+__DATA__
+_
+
+print $fh_safename <<'_';
+package WordList::CryptoCurrency::Catalog::Safename;
+
+# DATE
+# VERSION
+
+use WordList;
+our @ISA = qw(WordList);
+
+# STATS
+
+1;
+# ABSTRACT: List of cryptocurrency safenames (a.k.a. slugs)
+
+__DATA__
+_
+
+my (@symbols, @names, @namesymbols, @safenames);
+
+for ($cat->all_data) {
+    push @symbols, $_->{symbol};
+    push @names, $_->{name};
+    push @namesymbols, "$_->{name} ($_->{symbol})";
+    push @safenames, $_->{safename};
+}
+
+print $fh_symbol join("", map {"$_\n"} sort @symbols);
+print $fh_name join("", map {"$_\n"} sort @names);
+print $fh_namesymbol join("", map {"$_\n"} sort @namesymbols);
+print $fh_safename join("", map {"$_\n"} sort @safenames);
