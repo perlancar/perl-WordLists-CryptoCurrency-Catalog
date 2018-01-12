@@ -71,6 +71,7 @@ Anoncoin
 AntiBitcoin
 Antilitecoin
 Antimatter
+AppCoins
 AppleCoin
 AquariusCoin
 Aragon
@@ -251,6 +252,7 @@ CacheCoin
 Californium
 CaliphCoin
 CampusCoin
+CanYaCoin
 Canada eCoin
 CannaCoin
 CannabisCoin
@@ -717,6 +719,7 @@ LEOcoin
 LIFE
 LLToken
 LUXCoin
+Lamden
 Lampix
 LanaCoin
 LandCoin

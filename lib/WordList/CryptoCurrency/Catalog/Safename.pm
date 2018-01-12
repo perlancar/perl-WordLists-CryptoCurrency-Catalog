@@ -67,6 +67,7 @@ anryze
 antibitcoin
 antilitecoin
 antimatter
+appcoins
 applecoin-apw
 apx
 aquariuscoin
@@ -253,6 +254,7 @@ canada-ecoin
 cannabiscoin
 cannacoin
 cannation
+canyacoin
 cappasity
 capricoin
 carboncoin
@@ -738,6 +740,7 @@ kucoin-shares
 kurrent
 kushcoin
 kyber-network
+lamden
 lampix
 lanacoin
 landcoin
